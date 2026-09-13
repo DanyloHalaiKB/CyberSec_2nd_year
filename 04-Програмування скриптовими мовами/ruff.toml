@@ -1,0 +1,14 @@
+line-length = 79
+
+[lint]
+select = [
+    "E",  # pycodestyle: відступи, пробіли, довжина рядка
+    "W",  # pycodestyle: попередження
+    "F",  # pyflakes: невикористані імпорти та змінні
+    "I",  # isort: порядок імпортів
+    "N",  # pep8-naming: іменування
+    "D",  # pydocstyle: докстрінги
+]
+
+[lint.pydocstyle]
+convention = "pep257"
