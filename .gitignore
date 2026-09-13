@@ -1,0 +1,25 @@
+# --- Python ---
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+
+# --- Кеші інструментів ---
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# --- Налаштування редакторів ---
+.vscode/
+.idea/
+
+# --- Тимчасові файли Word/Excel і резервні копії ---
+~$*
+*.tmp
+*.bak
+
+# --- Системне сміття ---
+Thumbs.db
+desktop.ini
+.DS_Store
