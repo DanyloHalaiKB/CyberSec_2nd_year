@@ -1,0 +1,71 @@
+ЛР №2, варіант 7 - текстові описи налаштувань
+
+IP-план:
+  VLAN2 (WorkGroup1/РГ1): 176.24.0.0/16,    шлюз 176.24.0.1;    K1: PC0,PC1 (.2,.3)   K2: PC9,PC10,PC11 (.4,.5,.6)
+  VLAN3 (WorkGroup2/РГ2): 192.168.11.0/24,  шлюз 192.168.11.1;  K1: PC2,PC3,PC4 (.2-.4) K2: PC12,PC13 (.5,.6)
+  VLAN4 (WorkGroup3/РГ3): 192.168.150.0/24, шлюз 192.168.150.1; K1: PC5 (.2)           K2: PC14,PC15 (.3,.4)
+  VLAN1 (поза РГ), 192.168.1.0/24: K1: PC6,PC7,PC8 (.2-.4)  K2: PC16,PC17,PC18 (.5-.7)
+
+Порти K1: Fa0/1-2 VLAN2; Fa0/3-5 VLAN3; Fa0/6 VLAN4; Fa0/7-9 VLAN1; Fa0/10 trunk -> R1 Gi0/0; Fa0/11 trunk -> K2 Fa0/11
+Порти K2: Fa0/1-3 VLAN2; Fa0/4-5 VLAN3; Fa0/6-7 VLAN4; Fa0/8-10 VLAN1; Fa0/11 trunk -> K1 Fa0/11
+
+--- K1 ---
+hostname K1
+vlan 2
+ name WorkGroup1
+vlan 3
+ name WorkGroup2
+vlan 4
+ name WorkGroup3
+interface range fastEthernet0/1-2
+ switchport mode access
+ switchport access vlan 2
+interface range fastEthernet0/3-5
+ switchport mode access
+ switchport access vlan 3
+interface fastEthernet0/6
+ switchport mode access
+ switchport access vlan 4
+interface fastEthernet0/10
+ switchport mode trunk
+ switchport trunk allowed vlan 1-4
+interface fastEthernet0/11
+ switchport mode trunk
+ switchport trunk allowed vlan 1-4
+
+--- K2 ---
+hostname K2
+vlan 2
+ name WorkGroup1
+vlan 3
+ name WorkGroup2
+vlan 4
+ name WorkGroup3
+interface range fastEthernet0/1-3
+ switchport mode access
+ switchport access vlan 2
+interface range fastEthernet0/4-5
+ switchport mode access
+ switchport access vlan 3
+interface range fastEthernet0/6-7
+ switchport mode access
+ switchport access vlan 4
+interface fastEthernet0/11
+ switchport mode trunk
+ switchport trunk allowed vlan 1-4
+
+--- R1 (Cisco 2911, router-on-a-stick) ---
+hostname R1
+interface GigabitEthernet0/0
+ no shutdown
+interface GigabitEthernet0/0.2
+ encapsulation dot1Q 2
+ ip address 176.24.0.1 255.255.0.0
+interface GigabitEthernet0/0.3
+ encapsulation dot1Q 3
+ ip address 192.168.11.1 255.255.255.0
+interface GigabitEthernet0/0.4
+ encapsulation dot1Q 4
+ ip address 192.168.150.1 255.255.255.0
+
+Перевірка: show vlan brief; show interfaces trunk; show ip route; ping

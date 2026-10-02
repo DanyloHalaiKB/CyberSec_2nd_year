@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Резюме Данила Галая — студента спеціальності «Кібербезпека», розробника та контент-менеджера.">
+  <meta name="author" content="Danylo Halai">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>DH</text></svg>">
+
+  <!-- (1) ЗОВНІШНІ стилі — основна частина правил лежить тут -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- (2) ВНУТРІШНІ (internal) стилі — один блок <style> у <head>.
+       Тут лише те, що стосується конкретно цієї сторінки: друк і виділення тексту. -->
+  <style>
+    ::selection {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    @media print {
+      .nav,
+      .footer__top { display: none; }
+      .page { box-shadow: none; }
+    }
+  </style>
+
+  <title>Danylo Halai — Резюме</title>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ============ ШАПКА ============ -->
+  <header class="header" id="top">
+    <div class="header__identity">
+      <h1 class="header__name">Danylo Halai</h1>
+      <!-- (3) INLINE-стиль — рівно один раз на всю сторінку, найвища специфічність -->
+      <p class="header__role" style="letter-spacing: 0.04em;">
+        Студент спеціальності «Кібербезпека та програмування», контент-мейкер і менеджер
+      </p>
+    </div>
+
+    <nav class="nav" aria-label="Розділи резюме">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#profile">Профіль</a></li>
+        <li><a class="nav__link" href="#experience">Досвід</a></li>
+        <li><a class="nav__link" href="#education">Освіта</a></li>
+        <li><a class="nav__link" href="#skills">Навички</a></li>
+        <li><a class="nav__link" href="#projects">Проєкти</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============ БІЧНА КОЛОНКА ============ -->
+  <aside class="sidebar">
+
+    <section class="card" id="contacts">
+      <h2 class="card__title">Контакти</h2>
+      <address class="contacts">
+        <ul class="contacts__list">
+          <li class="contacts__item">
+            <a class="link" href="mailto:danylo.galai@gmail.com">danylo.galai@gmail.com</a>
+          </li>
+          <li class="contacts__item">
+            <a class="link" href="tel:+380686812966">+380 (68) 681-29-66</a>
+          </li>
+          <li class="contacts__item">Львів, Україна</li>
+          <li class="contacts__item">Водійські права: категорія B</li>
+        </ul>
+      </address>
+    </section>
+
+    <section class="card" id="skills">
+      <h2 class="card__title">Навички</h2>
+
+      <h3 class="card__subtitle">Комп'ютерні та ІТ</h3>
+      <ul class="tags">
+        <li class="tag tag--primary">C#</li>
+        <li class="tag tag--primary">Python</li>
+        <li class="tag tag--primary">C++</li>
+        <li class="tag tag--primary">SQL</li>
+        <li class="tag">Бекенд-розробка</li>
+        <li class="tag">ООП</li>
+        <li class="tag">Макроси та скрипти</li>
+        <li class="tag">Інтеграція ШІ</li>
+      </ul>
+
+      <h3 class="card__subtitle">Креативні</h3>
+      <ul class="tags">
+        <li class="tag">Lightroom Classic</li>
+        <li class="tag">Photoshop</li>
+        <li class="tag">CapCut</li>
+        <li class="tag">DaVinci Resolve</li>
+      </ul>
+
+      <h3 class="card__subtitle">Технічні дослідження</h3>
+      <ul class="tags">
+        <li class="tag">Автоматизація систем</li>
+        <li class="tag">Крипто-арбітраж</li>
+        <li class="tag">Діагностика заліза</li>
+        <li class="tag">Автомобільна інженерія</li>
+      </ul>
+    </section>
+
+    <section class="card" id="languages">
+      <h2 class="card__title">Мови</h2>
+      <ul class="langs">
+        <li class="langs__item"><span>Українська</span><span class="langs__level">рідна</span></li>
+        <li class="langs__item"><span>Англійська</span><span class="langs__level">B2–C1</span></li>
+        <li class="langs__item"><span>Німецька</span><span class="langs__level">A1</span></li>
+      </ul>
+    </section>
+
+  </aside>
+
+  <!-- ============ ОСНОВНИЙ ВМІСТ ============ -->
+  <main class="content">
+
+    <section class="block" id="profile">
+      <h2 class="block__title">Профіль</h2>
+      <p class="block__lead">
+        Студент спеціальності «Кібербезпека та програмування» з міцною базою в
+        <strong>C#</strong>, <strong>Python</strong>, <strong>C++</strong>, управлінні
+        <strong>SQL</strong>-базами даних та бекенд-розробці.
+      </p>
+      <p>
+        Аналітичний та адаптивний, із практичним досвідом ООП, інтеграції ШІ,
+        виробництва цифрового медіаконтенту та самостійних технічних досліджень.
+        Шукаю можливість застосувати різнобічний технічний набір навичок у динамічному
+        технологічному середовищі.
+      </p>
+    </section>
+
+    <section class="block" id="experience">
+      <h2 class="block__title">Досвід роботи</h2>
+
+      <article class="entry">
+        <div class="entry__head">
+          <h3 class="entry__title">Менеджер — продаж авто та контент-менеджмент</h3>
+          <p class="entry__meta"><time datetime="2023">2023</time> – дотепер · Львів</p>
+        </div>
+        <ul class="entry__points">
+          <li>Повний цикл продажу автомобілів із застосуванням знань автомобільної інженерії та європейських платформ.</li>
+          <li>Керування створенням контенту та стратегіями цифрового маркетингу.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry__head">
+          <h3 class="entry__title">Фотограф та спеціаліст із цифрових медіа</h3>
+          <p class="entry__meta"><time datetime="2022-10">10/2022</time> – дотепер · Львів</p>
+        </div>
+        <ul class="entry__points">
+          <li>Фрилансова зйомка понад 3,5 роки: корпоративна та lifestyle-фотографія.</li>
+          <li>Робота з бездзеркальними системами Lumix DC-G97H та Sony A7 II.</li>
+          <li>Постобробка й кольорокорекція у DaVinci Resolve.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="block" id="education">
+      <h2 class="block__title">Освіта</h2>
+      <article class="entry">
+        <div class="entry__head">
+          <h3 class="entry__title">Бакалавр, «Кібербезпека та програмування»</h3>
+          <p class="entry__meta"><time datetime="2025">2025</time> – дотепер · Львів</p>
+        </div>
+        <p>
+          <a class="link" href="https://lpnu.ua" target="_blank" rel="noopener noreferrer">
+            Національний університет «Львівська політехніка»
+          </a>
+        </p>
+        <ul class="entry__points">
+          <li>Дискретна математика, ООП, інформаційна безпека, вища математика.</li>
+          <li>Абстракція та успадкування в C#, оптимізація коду, розробка алгоритмів.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="block" id="projects">
+      <h2 class="block__title">Самостійні проєкти</h2>
+
+      <article class="entry">
+        <div class="entry__head">
+          <h3 class="entry__title">Розробка ПЗ — технічні дослідження</h3>
+          <p class="entry__meta"><time datetime="2026-01">01/2026</time> – дотепер</p>
+        </div>
+        <ul class="entry__points">
+          <li>Бекенд-логіка для складних застосунків на C#.</li>
+          <li>Технічні вимоги для P2P-криптоарбітражу та розрахунку спреду через Telegram-ботів.</li>
+          <li>Аналіз SQL-баз даних із фокусом на безпеці.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry__head">
+          <h3 class="entry__title">Адміністрування — інфраструктура кампусу</h3>
+          <p class="entry__meta"><time datetime="2026-02">02/2026</time></p>
+        </div>
+        <ul class="entry__points">
+          <li>Підготовка пропозиції щодо комерційної інфраструктури на території кампусу.</li>
+          <li>Практика роботи із системою закупівель Prozorro.</li>
+        </ul>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- ============ ПІДВАЛ ============ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <a class="link" href="mailto:danylo.galai@gmail.com">danylo.galai@gmail.com</a>
+      <a class="link" href="tel:+380686812966">+380 (68) 681-29-66</a>
+      <a class="link" href="#top">Нагору ↑</a>
+    </div>
+    <p class="footer__copy"><small>&copy; 2026 Danylo Halai · Лабораторна робота №3</small></p>
+  </footer>
+
+</div>
+
+</body>
+</html>

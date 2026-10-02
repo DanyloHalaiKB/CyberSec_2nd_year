@@ -1,0 +1,11 @@
+/* Єдиний рядок імпорту Tailwind v4 — замінює @tailwind base/components/utilities */
+@import "tailwindcss";
+
+/* Власні токени дизайну (Tailwind v4 оголошує їх через @theme).
+   Після цього стають доступними класи bg-brand, text-brand, bg-brand-soft тощо. */
+@theme {
+  --color-brand: #4c2a86;
+  --color-brand-soft: #ede7f6;
+  --color-ink: #1c1b1f;
+  --font-display: "Segoe UI", system-ui, sans-serif;
+}

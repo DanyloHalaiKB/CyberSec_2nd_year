@@ -1,0 +1,19 @@
+{
+  "name": "lab6-server",
+  "version": "1.0.0",
+  "description": "Лабораторна робота №6 — бекенд-сервіс на Koa (варіант 7)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Danylo Halai",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/bodyparser": "^6.1.0",
+    "@koa/router": "^15.7.0",
+    "koa": "^3.2.1",
+    "koa-static": "^5.0.0"
+  },
+  "type": "module"
+}

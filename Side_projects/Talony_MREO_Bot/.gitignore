@@ -1,0 +1,6 @@
+config.json
+state.json
+browser_profile/
+monitor.log*
+.venv/
+__pycache__/
