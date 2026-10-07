@@ -1,0 +1,8 @@
+/* Лабораторна №2 — стилів навмисно майже немає.
+   Оформлення додається в Лабораторній роботі №3 (CSS і Tailwind). */
+body {
+  margin: 0 auto;
+  max-width: 70ch;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+}
