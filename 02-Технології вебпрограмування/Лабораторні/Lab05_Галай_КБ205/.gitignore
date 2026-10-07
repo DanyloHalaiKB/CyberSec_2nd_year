@@ -1,0 +1,15 @@
+# залежності
+node_modules/
+
+# збірка
+dist/
+.vercel/
+
+# системні
+.DS_Store
+Thumbs.db
+*.log
+
+# локальні змінні середовища
+.env
+.env.local

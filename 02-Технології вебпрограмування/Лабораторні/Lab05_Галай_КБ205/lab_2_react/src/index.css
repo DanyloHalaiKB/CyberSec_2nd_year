@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* Tailwind v4: вмикаємо темну тему за класом .dark на кореневому елементі
+   (за замовчуванням Tailwind орієнтується на системну тему через prefers-color-scheme,
+   а нам потрібне ручне керування зі стану React). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand: #4c2a86;
+  --color-brand-soft: #ede7f6;
+  --color-ink: #1c1b1f;
+  --font-display: "Segoe UI", system-ui, sans-serif;
+}
