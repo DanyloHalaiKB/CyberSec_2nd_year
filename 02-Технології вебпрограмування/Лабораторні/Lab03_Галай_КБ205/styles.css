@@ -14,13 +14,13 @@
 
 /* ---------- 1. ТОКЕНИ ---------------------------------------------------- */
 :root {
-  --accent:        #4c2a86;
-  --accent-soft:   #ede7f6;
-  --text:          #1c1b1f;
-  --text-muted:    #5c5b62;
+  --accent:        #ad6705;
+  --accent-soft:   #f6f0e7;
+  --text:          #1f1e1b;
+  --text-muted:    #62625b;
   --surface:       #ffffff;
-  --bg:            #f4f2f7;
-  --border:        #ddd8e4;
+  --bg:            #f7f6f2;
+  --border:        #e4e3d8;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;

@@ -164,17 +164,17 @@ export default defineConfig({
 Базою є компоненти з Лабораторної №2 (статичний JSX без props і даних у масивах). Власних `.css`-файлів немає, `style="..."` теж: усе оформлення — утилітарні класи прямо в `className`.
 
 ```jsx
-<header id="top" className="bg-linear-to-br from-violet-900 via-violet-800 to-indigo-700 p-6 text-white sm:p-10">
+<header id="top" className="bg-linear-to-br from-amber-900 via-amber-800 to-orange-700 p-6 text-white sm:p-10">
   <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Danylo Halai</h1>
 ```
 
 Класи застосовано в усіх компонентах (`App`, `Header`, `Profile`, `Experience`, `Education`, `Skills`, `Languages`, `Projects`, `Footer`):
 
-- **кольори:** градієнт шапки `bg-linear-to-br from-violet-900 … to-indigo-700`, фон сторінки `bg-slate-100`, текст `text-slate-800`, акценти `violet` / `indigo` / `fuchsia` для трьох груп навичок;
+- **кольори:** градієнт шапки `bg-linear-to-br from-amber-900 … to-orange-700`, фон сторінки `bg-slate-100`, текст `text-slate-800`, акценти `amber` / `orange` / `yellow` для трьох груп навичок;
 - **макет:** `grid md:grid-cols-3` (групи навичок), `flex flex-wrap gap-2` (навігація, мови), контейнер `mx-auto max-w-5xl`;
 - **відступи:** `p-6`, `px-4 py-1.5`, `mt-3`, `space-y-10`, `gap-4`;
 - **типографіка:** `text-4xl font-extrabold tracking-tight`, `uppercase tracking-wide`, `leading-relaxed`;
-- **межі, кути, тіні:** `rounded-2xl`, `border-l-4 border-l-violet-600`, `shadow-sm`, `shadow-xl`, `ring-1`;
+- **межі, кути, тіні:** `rounded-2xl`, `border-l-4 border-l-amber-600`, `shadow-sm`, `shadow-xl`, `ring-1`;
 - **стани:** `hover:-translate-y-0.5`, `hover:shadow-lg`, `hover:scale-105`, `hover:bg-white`, `hover:underline`, `focus-visible:outline-2`, `transition`;
 - **адаптивність (mobile-first):** `sm:p-10`, `sm:grid-cols-2`, `md:grid-cols-3` — без префікса це мобільний вигляд, префікси додають правила для ширших екранів;
 - **доступність:** `sr-only` для заголовка «Навігація» (видно лише скрінрідеру).
@@ -184,7 +184,7 @@ export default defineConfig({
 ## Питання для самоконтролю (Частина 2)
 
 **1. Різниця між Tailwind і Bootstrap/Material UI.**
-Bootstrap і MUI дають **готові компоненти** (кнопка, навбар, модалка) з власним дизайном — швидко, але всі сайти схожі, а кастомізація означає боротьбу з чужими стилями. Tailwind дає **низькорівневі утиліти** (`flex`, `p-4`, `bg-violet-600`) — жодного готового вигляду, повна свобода дизайну без виходу з розмітки, ціною довших рядків `className`.
+Bootstrap і MUI дають **готові компоненти** (кнопка, навбар, модалка) з власним дизайном — швидко, але всі сайти схожі, а кастомізація означає боротьбу з чужими стилями. Tailwind дає **низькорівневі утиліти** (`flex`, `p-4`, `bg-amber-600`) — жодного готового вигляду, повна свобода дизайну без виходу з розмітки, ціною довших рядків `className`.
 
 **2. Як плагін `@tailwindcss/vite` спрощує налаштування.**
 Раніше треба було: `npx tailwindcss init -p` → `tailwind.config.js` із масивом `content` (шляхи для сканування) → `postcss.config.js` → три директиви `@tailwind` у CSS. Плагін для Vite прибирає все це: він сам вбудовується у збірку, сам знаходить файли й сам генерує CSS. Лишається один рядок у `vite.config.js` і один `@import` у CSS.
@@ -193,7 +193,7 @@ Bootstrap і MUI дають **готові компоненти** (кнопка,
 Підключає весь Tailwind: нормалізацію (preflight), шар компонентів і генератор утиліт. Збирач при обробці цього рядка сканує вихідний код, знаходить використані класи й підставляє **тільки їх** — тому фінальний CSS маленький.
 
 **4. Як застосувати псевдокласи в Tailwind.**
-Через префікси-варіанти перед класом: `hover:bg-violet-700`, `focus:outline-none`, `focus-visible:ring-2`, `active:scale-95`, `disabled:opacity-50`, `first:mt-0`, `last:mb-0`, `even:bg-slate-50`, `group-hover:text-white`. Їх можна комбінувати з брейкпоінтами: `md:hover:shadow-lg`.
+Через префікси-варіанти перед класом: `hover:bg-amber-700`, `focus:outline-none`, `focus-visible:ring-2`, `active:scale-95`, `disabled:opacity-50`, `first:mt-0`, `last:mb-0`, `even:bg-slate-50`, `group-hover:text-white`. Їх можна комбінувати з брейкпоінтами: `md:hover:shadow-lg`.
 
 **5. Як налаштувати власні токени дизайну у Tailwind v4.**
 Директивою `@theme` прямо в CSS (замість `theme.extend` у `tailwind.config.js` з v3):
