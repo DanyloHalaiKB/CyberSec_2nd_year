@@ -1,23 +1,22 @@
-function Education({ items }) {
+function Education() {
   return (
-    <section>
+    <section id="education">
       <h2>Освіта</h2>
-      {items.map((item) => (
-        <article key={item.id}>
-          <h3>{item.degree}</h3>
-          <p>
-            <a href={item.url} target="_blank" rel="noopener noreferrer">
-              {item.school}
-            </a>
-          </p>
-          <p>{item.period} · {item.location}</p>
-          <ul>
-            {item.points.map((point, i) => (
-              <li key={i}>{point}</li>
-            ))}
-          </ul>
-        </article>
-      ))}
+      <article>
+        <h3>Бакалавр, «Кібербезпека та програмування»</h3>
+        <p>
+          <a href="https://lpnu.ua" target="_blank" rel="noopener noreferrer">
+            Національний університет «Львівська політехніка»
+          </a>
+        </p>
+        <p><time dateTime="2025">2025</time> – дотепер, Львів, Україна</p>
+        <ul>
+          <li>Основні дисципліни: дискретна математика, об'єктно-орієнтоване програмування,
+              інформаційна безпека, вища математика.</li>
+          <li>Академічний фокус: практичне застосування абстракції та успадкування в C#,
+              оптимізація коду, розробка алгоритмів.</li>
+        </ul>
+      </article>
     </section>
   );
 }

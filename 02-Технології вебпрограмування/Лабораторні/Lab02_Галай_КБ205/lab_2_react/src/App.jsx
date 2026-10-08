@@ -6,23 +6,20 @@ import Skills from './components/Skills';
 import Languages from './components/Languages';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
-import { cv } from './data/cv';
 
-// App — кореневий компонент. Він не містить розмітки резюме,
-// а лише збирає дочірні компоненти і передає їм дані через props.
 function App() {
   return (
     <div>
-      <Header name={cv.name} role={cv.role} contacts={cv.contacts} />
+      <Header />
       <main>
-        <Profile paragraphs={cv.profile} />
-        <Experience jobs={cv.experience} />
-        <Education items={cv.education} />
-        <Skills groups={cv.skills} />
-        <Languages items={cv.languages} />
-        <Projects items={cv.projects} />
+        <Profile />
+        <Experience />
+        <Education />
+        <Skills />
+        <Languages />
+        <Projects />
       </main>
-      <Footer contacts={cv.contacts} />
+      <Footer />
     </div>
   );
 }

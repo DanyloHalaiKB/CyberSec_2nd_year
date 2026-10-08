@@ -1,11 +1,11 @@
-function Languages({ items }) {
+function Languages() {
   return (
-    <section>
+    <section id="languages">
       <h2>Мови</h2>
       <ul>
-        {items.map((lang) => (
-          <li key={lang.id}>{lang.name} — {lang.level}</li>
-        ))}
+        <li>Українська — рідна</li>
+        <li>Англійська — B2–C1</li>
+        <li>Німецька — A1</li>
       </ul>
     </section>
   );
