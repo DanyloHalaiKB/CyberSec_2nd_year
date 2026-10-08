@@ -1,28 +1,39 @@
-function Skills({ groups }) {
+function Skills() {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-brand-soft p-6 shadow-sm">
-      <h2 className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand">
-        Навички
-      </h2>
+    <section id="skills" className="scroll-mt-6">
+      <h2 className="mb-4 border-b-2 border-violet-200 pb-2 text-2xl font-bold text-violet-900">Навички</h2>
 
-      <div className="flex flex-col gap-4">
-        {groups.map((group) => (
-          <div key={group.id}>
-            <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
-              {group.group}
-            </h3>
-            <ul className="flex flex-wrap gap-2">
-              {group.items.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-md border border-slate-300 bg-white px-2 py-0.5 text-xs transition hover:border-brand hover:bg-brand hover:text-white"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <div className="grid gap-4 md:grid-cols-3">
+        <section className="rounded-xl border border-t-4 border-slate-200 border-t-violet-600 bg-slate-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+          <h3 className="mb-3 text-base font-semibold uppercase tracking-wide text-violet-800">Комп'ютерні та ІТ-навички</h3>
+          <ul className="list-disc space-y-1.5 pl-5 text-sm marker:text-violet-600">
+            <li>C#, Python, C++, SQL</li>
+            <li>Бекенд-розробка, написання макросів і скриптів</li>
+            <li>Об'єктно-орієнтоване програмування (ООП)</li>
+            <li>Інтеграція ШІ у робочі процеси</li>
+            <li>Дискретна та вища математика</li>
+          </ul>
+        </section>
+
+        <section className="rounded-xl border border-t-4 border-slate-200 border-t-indigo-500 bg-slate-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+          <h3 className="mb-3 text-base font-semibold uppercase tracking-wide text-indigo-800">Креативні навички</h3>
+          <ul className="list-disc space-y-1.5 pl-5 text-sm marker:text-indigo-500">
+            <li>Adobe Lightroom Classic</li>
+            <li>Adobe Photoshop</li>
+            <li>CapCut</li>
+            <li>DaVinci Resolve</li>
+          </ul>
+        </section>
+
+        <section className="rounded-xl border border-t-4 border-slate-200 border-t-fuchsia-500 bg-slate-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+          <h3 className="mb-3 text-base font-semibold uppercase tracking-wide text-fuchsia-800">Технічні дослідження</h3>
+          <ul className="list-disc space-y-1.5 pl-5 text-sm marker:text-fuchsia-500">
+            <li>Автоматизація систем</li>
+            <li>Фінансові технології (основи криптоарбітражу)</li>
+            <li>Діагностика апаратного забезпечення</li>
+            <li>Складні специфікації автомобільної інженерії (європейські платформи)</li>
+          </ul>
+        </section>
       </div>
     </section>
   );

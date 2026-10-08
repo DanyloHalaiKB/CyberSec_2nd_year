@@ -1,30 +1,31 @@
-function Experience({ jobs }) {
+function Experience() {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-4 border-b border-slate-200 pb-2 text-xl font-semibold text-brand">
-        Досвід роботи
-      </h2>
+    <section id="experience" className="scroll-mt-6">
+      <h2 className="mb-4 border-b-2 border-violet-200 pb-2 text-2xl font-bold text-violet-900">Досвід роботи</h2>
 
-      <div className="flex flex-col gap-5">
-        {jobs.map((job) => (
-          <article
-            key={job.id}
-            className="border-l-2 border-brand-soft pl-4 transition hover:border-brand"
-          >
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="font-semibold text-ink">{job.title}</h3>
-              <p className="text-sm text-slate-500">
-                {job.period} · {job.location}
-              </p>
-            </div>
-            <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-700 marker:text-brand">
-              {job.points.map((point, i) => (
-                <li key={i}>{point}</li>
-              ))}
-            </ul>
-          </article>
-        ))}
-      </div>
+      <article className="mb-4 rounded-xl border border-l-4 border-slate-200 border-l-violet-600 bg-slate-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+        <h3 className="text-lg font-semibold text-slate-900">Менеджер — продаж автомобілів та контент-менеджмент</h3>
+        <p className="mt-1 text-sm text-slate-500"><time dateTime="2023">2023</time> – дотепер, Львів, Україна</p>
+        <ul className="mt-3 list-disc space-y-1.5 pl-5 marker:text-violet-600">
+          <li>Ведення повного циклу продажу автомобілів на майданчику із застосуванням
+              глибоких знань автомобільної інженерії та європейських платформ.</li>
+          <li>Керування створенням контенту та стратегіями цифрового маркетингу:
+              виробництво мультимедійного контенту для показу автопарку й підвищення
+              залученості покупців.</li>
+        </ul>
+      </article>
+
+      <article className="mb-4 rounded-xl border border-l-4 border-slate-200 border-l-violet-600 bg-slate-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+        <h3 className="text-lg font-semibold text-slate-900">Фотограф та спеціаліст із цифрових медіа</h3>
+        <p className="mt-1 text-sm text-slate-500"><time dateTime="2022-10">Жовтень 2022</time> – дотепер, Львів, Україна</p>
+        <ul className="mt-3 list-disc space-y-1.5 pl-5 marker:text-violet-600">
+          <li>Професійні фотопослуги на фрилансі понад 3,5 роки: корпоративна та
+              lifestyle-зйомка для десятків клієнтів.</li>
+          <li>Зйомка у високій роздільності на професійних бездзеркальних системах
+              Lumix DC-G97H та Sony A7 II.</li>
+          <li>Постобробка, кольорокорекція та оптимізація експорту в DaVinci Resolve.</li>
+        </ul>
+      </article>
     </section>
   );
 }

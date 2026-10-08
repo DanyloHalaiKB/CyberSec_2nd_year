@@ -1,33 +1,22 @@
-function Education({ items }) {
+function Education() {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-4 border-b border-slate-200 pb-2 text-xl font-semibold text-brand">
-        Освіта
-      </h2>
-
-      {items.map((item) => (
-        <article key={item.id} className="border-l-2 border-brand-soft pl-4">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 className="font-semibold text-ink">{item.degree}</h3>
-            <p className="text-sm text-slate-500">
-              {item.period} · {item.location}
-            </p>
-          </div>
-          <a
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-1 inline-block text-brand underline underline-offset-4 hover:text-brand/70"
-          >
-            {item.school} ↗
+    <section id="education" className="scroll-mt-6">
+      <h2 className="mb-4 border-b-2 border-violet-200 pb-2 text-2xl font-bold text-violet-900">Освіта</h2>
+      <article className="rounded-xl border border-l-4 border-slate-200 border-l-violet-600 bg-slate-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+        <h3 className="text-lg font-semibold text-slate-900">Бакалавр, «Кібербезпека та програмування»</h3>
+        <p className="mt-1">
+          <a className="font-medium text-violet-700 underline-offset-4 hover:underline" href="https://lpnu.ua" target="_blank" rel="noopener noreferrer">
+            Національний університет «Львівська політехніка»
           </a>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-slate-700 marker:text-brand">
-            {item.points.map((point, i) => (
-              <li key={i}>{point}</li>
-            ))}
-          </ul>
-        </article>
-      ))}
+        </p>
+        <p className="text-sm text-slate-500"><time dateTime="2025">2025</time> – дотепер, Львів, Україна</p>
+        <ul className="mt-3 list-disc space-y-1.5 pl-5 marker:text-violet-600">
+          <li>Основні дисципліни: дискретна математика, об'єктно-орієнтоване програмування,
+              інформаційна безпека, вища математика.</li>
+          <li>Академічний фокус: практичне застосування абстракції та успадкування в C#,
+              оптимізація коду, розробка алгоритмів.</li>
+        </ul>
+      </article>
     </section>
   );
 }

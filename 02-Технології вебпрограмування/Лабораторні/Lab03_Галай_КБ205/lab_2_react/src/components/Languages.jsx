@@ -1,16 +1,11 @@
-function Languages({ items }) {
+function Languages() {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <h2 className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand">
-        Мови
-      </h2>
-      <ul className="divide-y divide-slate-100">
-        {items.map((lang) => (
-          <li key={lang.id} className="flex justify-between py-1.5 text-sm">
-            <span className="text-ink">{lang.name}</span>
-            <span className="text-slate-500">{lang.level}</span>
-          </li>
-        ))}
+    <section id="languages" className="scroll-mt-6">
+      <h2 className="mb-4 border-b-2 border-violet-200 pb-2 text-2xl font-bold text-violet-900">Мови</h2>
+      <ul className="flex flex-wrap gap-3">
+        <li className="rounded-lg border border-slate-200 bg-white px-4 py-2 shadow-sm transition hover:scale-105 hover:border-violet-400">Українська — рідна</li>
+        <li className="rounded-lg border border-slate-200 bg-white px-4 py-2 shadow-sm transition hover:scale-105 hover:border-violet-400">Англійська — B2–C1</li>
+        <li className="rounded-lg border border-slate-200 bg-white px-4 py-2 shadow-sm transition hover:scale-105 hover:border-violet-400">Німецька — A1</li>
       </ul>
     </section>
   );

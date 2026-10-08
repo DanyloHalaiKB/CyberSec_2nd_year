@@ -153,42 +153,38 @@ export default defineConfig({
 })
 ```
 
-`src/index.css` — увесь попередній вміст видалено, лишився імпорт і власні токени:
+`src/index.css` — увесь попередній вміст видалено, лишився єдиний рядок (так вимагає методичка):
 
 ```css
 @import "tailwindcss";
-
-@theme {
-  --color-brand: #4c2a86;
-  --color-brand-soft: #ede7f6;
-  --color-ink: #1c1b1f;
-  --font-display: "Segoe UI", system-ui, sans-serif;
-}
 ```
-
-Завдяки `@theme` зʼявляються класи `bg-brand`, `text-brand`, `border-brand-soft`, `font-display` — тобто **власні токени стають частиною системи утиліт**, а не окремим CSS.
 
 ## Що змінилось у компонентах
 
-Жодного файлу `.css` на компонент — усе оформлення класами прямо в JSX:
+Базою є компоненти з Лабораторної №2 (статичний JSX без props і даних у масивах). Власних `.css`-файлів немає, `style="..."` теж: усе оформлення — утилітарні класи прямо в `className`.
 
 ```jsx
-<header className="bg-brand text-white px-6 py-8 rounded-2xl shadow-lg sm:px-10">
+<header id="top" className="bg-linear-to-br from-violet-900 via-violet-800 to-indigo-700 p-6 text-white sm:p-10">
+  <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Danylo Halai</h1>
 ```
 
-- **макет:** `flex`, `flex-col`, `grid`, `gap-6`, `lg:grid-cols-[1fr_320px]`
-- **відступи:** `px-6`, `py-8`, `mt-2`, `pl-5`
-- **типографіка:** `text-3xl`, `font-semibold`, `tracking-tight`, `uppercase`
-- **межі й тіні:** `rounded-2xl`, `border border-slate-200`, `shadow-sm`, `divide-y`
-- **стани:** `hover:bg-brand`, `hover:text-white`, `hover:-translate-y-0.5`, `hover:shadow-md`, `transition`
-- **адаптивність:** `sm:px-10`, `md:grid-cols-2`, `lg:grid-cols-[1fr_320px]` — мобільний вигляд за замовчуванням, брейкпоінти додаються зверху (mobile-first)
+Класи застосовано в усіх компонентах (`App`, `Header`, `Profile`, `Experience`, `Education`, `Skills`, `Languages`, `Projects`, `Footer`):
 
-Перевірка: `npm run build` генерує ~16 kB CSS — це лише ті утиліти, які реально зустрілись у JSX.
+- **кольори:** градієнт шапки `bg-linear-to-br from-violet-900 … to-indigo-700`, фон сторінки `bg-slate-100`, текст `text-slate-800`, акценти `violet` / `indigo` / `fuchsia` для трьох груп навичок;
+- **макет:** `grid md:grid-cols-3` (групи навичок), `flex flex-wrap gap-2` (навігація, мови), контейнер `mx-auto max-w-5xl`;
+- **відступи:** `p-6`, `px-4 py-1.5`, `mt-3`, `space-y-10`, `gap-4`;
+- **типографіка:** `text-4xl font-extrabold tracking-tight`, `uppercase tracking-wide`, `leading-relaxed`;
+- **межі, кути, тіні:** `rounded-2xl`, `border-l-4 border-l-violet-600`, `shadow-sm`, `shadow-xl`, `ring-1`;
+- **стани:** `hover:-translate-y-0.5`, `hover:shadow-lg`, `hover:scale-105`, `hover:bg-white`, `hover:underline`, `focus-visible:outline-2`, `transition`;
+- **адаптивність (mobile-first):** `sm:p-10`, `sm:grid-cols-2`, `md:grid-cols-3` — без префікса це мобільний вигляд, префікси додають правила для ширших екранів;
+- **доступність:** `sr-only` для заголовка «Навігація» (видно лише скрінрідеру).
+
+Перевірка: `npm run build` проходить без помилок, у `dist/` потрапляє лише ~21 kB CSS (~5 kB після gzip) — тільки ті утиліти, які реально зустрілись у JSX. На ширині 390 px горизонтальної прокрутки немає.
 
 ## Питання для самоконтролю (Частина 2)
 
 **1. Різниця між Tailwind і Bootstrap/Material UI.**
-Bootstrap і MUI дають **готові компоненти** (кнопка, навбар, модалка) з власним дизайном — швидко, але всі сайти схожі, а кастомізація означає боротьбу з чужими стилями. Tailwind дає **низькорівневі утиліти** (`flex`, `p-4`, `bg-brand`) — жодного готового вигляду, повна свобода дизайну без виходу з розмітки, ціною довших рядків `className`.
+Bootstrap і MUI дають **готові компоненти** (кнопка, навбар, модалка) з власним дизайном — швидко, але всі сайти схожі, а кастомізація означає боротьбу з чужими стилями. Tailwind дає **низькорівневі утиліти** (`flex`, `p-4`, `bg-violet-600`) — жодного готового вигляду, повна свобода дизайну без виходу з розмітки, ціною довших рядків `className`.
 
 **2. Як плагін `@tailwindcss/vite` спрощує налаштування.**
 Раніше треба було: `npx tailwindcss init -p` → `tailwind.config.js` із масивом `content` (шляхи для сканування) → `postcss.config.js` → три директиви `@tailwind` у CSS. Плагін для Vite прибирає все це: він сам вбудовується у збірку, сам знаходить файли й сам генерує CSS. Лишається один рядок у `vite.config.js` і один `@import` у CSS.
@@ -197,10 +193,21 @@ Bootstrap і MUI дають **готові компоненти** (кнопка,
 Підключає весь Tailwind: нормалізацію (preflight), шар компонентів і генератор утиліт. Збирач при обробці цього рядка сканує вихідний код, знаходить використані класи й підставляє **тільки їх** — тому фінальний CSS маленький.
 
 **4. Як застосувати псевдокласи в Tailwind.**
-Через префікси-варіанти перед класом: `hover:bg-brand`, `focus:outline-none`, `focus-visible:ring-2`, `active:scale-95`, `disabled:opacity-50`, `first:mt-0`, `last:mb-0`, `even:bg-slate-50`, `group-hover:text-white`. Їх можна комбінувати з брейкпоінтами: `md:hover:shadow-lg`.
+Через префікси-варіанти перед класом: `hover:bg-violet-700`, `focus:outline-none`, `focus-visible:ring-2`, `active:scale-95`, `disabled:opacity-50`, `first:mt-0`, `last:mb-0`, `even:bg-slate-50`, `group-hover:text-white`. Їх можна комбінувати з брейкпоінтами: `md:hover:shadow-lg`.
 
 **5. Як налаштувати власні токени дизайну у Tailwind v4.**
-Директивою `@theme` прямо в CSS (замість `theme.extend` у `tailwind.config.js` з v3). Оголошена змінна `--color-brand: #4c2a86;` автоматично породжує утиліти `bg-brand`, `text-brand`, `border-brand`, `fill-brand`. Аналогічно `--font-*`, `--spacing-*`, `--radius-*`, `--breakpoint-*`.
+Директивою `@theme` прямо в CSS (замість `theme.extend` у `tailwind.config.js` з v3):
+
+```css
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #4c2a86;
+  --font-display: "Segoe UI", system-ui, sans-serif;
+}
+```
+
+Оголошена змінна `--color-brand` автоматично породжує утиліти `bg-brand`, `text-brand`, `border-brand`, `fill-brand`, а `--font-display` — клас `font-display`. Аналогічно працюють `--spacing-*`, `--radius-*`, `--breakpoint-*`. У цій роботі `@theme` **не використано** — `index.css` містить лише один рядок за методичкою, а кольори взято зі стандартної палітри Tailwind.
 
 ---
 
@@ -215,6 +222,6 @@ npm install
 npm run dev        # http://localhost:5173
 ```
 
-## Що доробити вручну
+## Скріншоти
 
-- Скріншоти сторінки на широкому та вузькому екрані → `screens/`.
+У `screens/` лежать знімки сторінок на широкому (1280 px) і вузькому (390 px) екрані: `lab3_part1_desktop.png`, `lab3_part1_mobile.png` (CSS) та `lab3_part2_desktop.png`, `lab3_part2_mobile.png` (Tailwind). Їх знято автоматично у Chromium; для звіту можна зробити власні в браузері (DevTools → Toggle device toolbar).
